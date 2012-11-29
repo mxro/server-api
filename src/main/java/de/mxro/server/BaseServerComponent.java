@@ -1,7 +1,5 @@
 package de.mxro.server;
 
-import one.utils.server.ShutdownCallback;
-
 public class BaseServerComponent implements ServerComponent {
 
 	private static final String METHOD_NOT_SUPPORTED = "Method not supported";
