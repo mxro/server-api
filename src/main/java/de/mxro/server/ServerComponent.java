@@ -5,8 +5,6 @@
  ******************************************************************************/
 package de.mxro.server;
 
-import one.utils.server.ShutdownCallback;
-
 /**
  * A component of a server process.
  * 
