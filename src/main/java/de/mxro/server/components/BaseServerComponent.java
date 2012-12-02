@@ -1,5 +1,17 @@
-package de.mxro.server;
+package de.mxro.server.components;
 
+import de.mxro.server.ComponentConfiguration;
+import de.mxro.server.ComponentContext;
+import de.mxro.server.ServerComponent;
+import de.mxro.server.StartCallback;
+
+/**
+ * A basic component implementing all methods. Any methods which shall be used
+ * by this component must be overriden.
+ * 
+ * @author mroh004
+ * 
+ */
 public class BaseServerComponent implements ServerComponent {
 
 	private static final String METHOD_NOT_SUPPORTED = "Method not supported";
