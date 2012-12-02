@@ -3,7 +3,7 @@
 <project>
 	<groupId>de.mxro.server</groupId>
 	<artifactId>server-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<description>An abstract API for the management of servers.
 	</description>
 
@@ -23,7 +23,7 @@
 			org.junit,
 			*
 		</module.importedPackages>
-		<module.exportedPackages>de.mxro.server*
+		<module.exportedPackages>!de.mxro.server.internal*,de.mxro.server*
 		</module.exportedPackages>
 		<module.serviceDefinitions>
 		</module.serviceDefinitions>
