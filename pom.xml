@@ -3,7 +3,7 @@
 <project>
 	<groupId>de.mxro.server</groupId>
 	<artifactId>server-api</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<description>An abstract API for the management of servers.
 	</description>
 
