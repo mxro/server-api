@@ -27,7 +27,7 @@ public class LoggingComponent implements ServerComponent {
 	@Override
 	public void start(final StartCallback callback) {
 		conf.getListener().log(
-				"Starting component: " + conf.getId() + " " + this);
+				"Starting component: " + conf.getId() + " (" + this + ")");
 		callback.onStarted();
 	}
 
