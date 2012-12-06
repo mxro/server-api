@@ -5,36 +5,37 @@ import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.ShutdownCallback;
 import de.mxro.server.StartCallback;
-import de.mxro.server.configuration.v01.LoggingComponentConfiguration;
+import de.mxro.server.configuration.CrashingComponentConfiguration;
 
 /**
- * A component useful for test and debugging, which will write all actions
- * performed onto it in a specified log.
+ * <p>
+ * This component can be configured to 'crash' after a defined interval.
+ * </p>
+ * <p>
+ * Useful for stress testing and failure-case testing.
+ * </p>
  * 
- * @author <a href="http://www.mxro.de">Max Rohde</a>
+ * @author Max
  * 
  */
-public class LoggingComponent implements ServerComponent {
+public class CrashingComponent implements ServerComponent {
 
-	LoggingComponentConfiguration conf;
+	CrashingComponentConfiguration conf;
+	ServerComponent decorated;
 
 	@Override
 	public void stop(final ShutdownCallback callback) {
-		conf.getListener().log(
-				"Stopping component: " + conf.getId() + " " + this);
-		callback.onShutdownComplete();
+		decorated.stop(callback);
 	}
 
 	@Override
 	public void start(final StartCallback callback) {
-		conf.getListener().log(
-				"Starting component: " + conf.getId() + " (" + this + ")");
-		callback.onStarted();
+		decorated.start(callback);
 	}
 
 	@Override
 	public void injectConfiguration(final ComponentConfiguration conf) {
-		this.conf = (LoggingComponentConfiguration) conf;
+		this.conf = (CrashingComponentConfiguration) conf;
 	}
 
 	@Override

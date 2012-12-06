@@ -1,6 +1,7 @@
-package de.mxro.server.components;
+package de.mxro.server.configuration.v01;
 
 import de.mxro.server.ComponentConfiguration;
+import de.mxro.server.components.LoggingListener;
 
 public class LoggingComponentConfiguration implements ComponentConfiguration {
 
