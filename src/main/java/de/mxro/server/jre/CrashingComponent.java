@@ -1,4 +1,4 @@
-package de.mxro.server.components;
+package de.mxro.server.jre;
 
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
@@ -30,6 +30,7 @@ public class CrashingComponent implements ServerComponent {
 
 	@Override
 	public void start(final StartCallback callback) {
+		this.decorated = conf.decoratedComponent();
 		decorated.start(callback);
 	}
 
@@ -46,6 +47,11 @@ public class CrashingComponent implements ServerComponent {
 	@Override
 	public ComponentConfiguration getConfiguration() {
 		return conf;
+	}
+
+	public CrashingComponent() {
+		super();
+
 	}
 
 }
