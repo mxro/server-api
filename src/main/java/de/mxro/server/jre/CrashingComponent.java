@@ -1,5 +1,8 @@
 package de.mxro.server.jre;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
@@ -23,15 +26,67 @@ public class CrashingComponent implements ServerComponent {
 	CrashingComponentConfiguration conf;
 	ServerComponent decorated;
 
+	private volatile boolean running = false;
+	private volatile boolean stopped = false;
+	private volatile boolean stopping = false;
+
 	@Override
 	public void stop(final ShutdownCallback callback) {
-		decorated.stop(callback);
+		while (stopping) {
+		}
+		if (!stopped) {
+			decorated.stop(new ShutdownCallback() {
+
+				@Override
+				public void onShutdownComplete() {
+					running = false;
+					callback.onShutdownComplete();
+				}
+
+				@Override
+				public void onFailure(final Throwable t) {
+					callback.onFailure(t);
+				}
+			});
+		} else {
+			running = false;
+			callback.onShutdownComplete();
+		}
+
 	}
 
 	@Override
 	public void start(final StartCallback callback) {
+
+		assert running == false;
+
 		this.decorated = conf.decoratedComponent();
+		running = true;
 		decorated.start(callback);
+
+		stopped = false;
+		stopping = true;
+		final TimerTask tt = new TimerTask() {
+
+			@Override
+			public void run() {
+				stopping = true;
+				decorated.stop(new ShutdownCallback() {
+
+					@Override
+					public void onShutdownComplete() {
+						stopping = false;
+						stopped = true;
+					}
+
+					@Override
+					public void onFailure(final Throwable t) {
+						throw new RuntimeException(t);
+					}
+				});
+			}
+		};
+		new Timer().schedule(tt, conf.crashAfterMs());
 	}
 
 	@Override
