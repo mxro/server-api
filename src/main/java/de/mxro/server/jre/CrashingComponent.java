@@ -65,11 +65,12 @@ public class CrashingComponent implements ServerComponent {
 		decorated.start(callback);
 
 		stopped = false;
-		stopping = true;
+		stopping = false;
 		final TimerTask tt = new TimerTask() {
 
 			@Override
 			public void run() {
+				System.out.println("YES< CRASH!");
 				stopping = true;
 				decorated.stop(new ShutdownCallback() {
 
