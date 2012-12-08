@@ -31,15 +31,21 @@ public class CrashingComponent implements ServerComponent {
 	private volatile boolean stopping = false;
 
 	@Override
-	public void stop(final ShutdownCallback callback) {
+	public synchronized void stop(final ShutdownCallback callback) {
+		assert running;
+
 		while (stopping) {
+
 		}
+
 		if (!stopped) {
+			stopping = true;
 			decorated.stop(new ShutdownCallback() {
 
 				@Override
 				public void onShutdownComplete() {
 					running = false;
+					stopping = false;
 					callback.onShutdownComplete();
 				}
 
@@ -56,7 +62,7 @@ public class CrashingComponent implements ServerComponent {
 	}
 
 	@Override
-	public void start(final StartCallback callback) {
+	public synchronized void start(final StartCallback callback) {
 
 		assert running == false;
 
@@ -66,11 +72,12 @@ public class CrashingComponent implements ServerComponent {
 
 		stopped = false;
 		stopping = false;
+
 		final TimerTask tt = new TimerTask() {
 
 			@Override
 			public void run() {
-				System.out.println("YES< CRASH!");
+
 				stopping = true;
 				decorated.stop(new ShutdownCallback() {
 
