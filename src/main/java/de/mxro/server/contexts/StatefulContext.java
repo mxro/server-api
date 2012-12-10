@@ -1,7 +1,5 @@
 package de.mxro.server.contexts;
 
-import de.mxro.server.ComponentContext;
-
 /**
  * Allows access to two kinds of stateful data for a server: logs and simple
  * key/value properties.
@@ -9,7 +7,7 @@ import de.mxro.server.ComponentContext;
  * @author Max
  * 
  */
-public interface StatefulContext extends ComponentContext {
+public interface StatefulContext {
 
 	public void log(String path, String title, String message,
 			LogCallback callback);
