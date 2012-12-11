@@ -17,4 +17,15 @@ public interface StatefulContext {
 
 	public void getProperty(String path, GetPropertyCallback callback);
 
+	/**
+	 * Either returns the value at the specified path if it exists or creates a
+	 * new node at the specified path with the specified defaultValue.
+	 * 
+	 * @param path
+	 * @param defaultValue
+	 * @param callback
+	 */
+	public void getProperty(String path, Object defaultValue,
+			GetPropertyCallback callback);
+
 }

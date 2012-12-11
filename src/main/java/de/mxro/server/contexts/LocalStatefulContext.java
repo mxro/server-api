@@ -42,4 +42,18 @@ public class LocalStatefulContext implements StatefulContext {
 		this.properties = new HashMap<String, Object>();
 	}
 
+	@Override
+	public void getProperty(final String path, final Object defaultValue,
+			final GetPropertyCallback callback) {
+		synchronized (properties) {
+			if (!properties.containsKey(path)) {
+				properties.put(path, defaultValue);
+				callback.onPropertyRetrieved(defaultValue);
+				return;
+			}
+			callback.onPropertyRetrieved(properties.get(path));
+			return;
+		}
+	}
+
 }
