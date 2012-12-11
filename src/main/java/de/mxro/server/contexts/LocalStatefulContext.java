@@ -3,6 +3,8 @@ package de.mxro.server.contexts;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.mxro.server.ShutdownCallback;
+
 public class LocalStatefulContext implements StatefulContext {
 
 	private final Map<String, Object> properties;
@@ -54,6 +56,11 @@ public class LocalStatefulContext implements StatefulContext {
 			callback.onPropertyRetrieved(properties.get(path));
 			return;
 		}
+	}
+
+	@Override
+	public void shutdown(final ShutdownCallback callback) {
+		callback.onShutdownComplete();
 	}
 
 }

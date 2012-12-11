@@ -1,5 +1,7 @@
 package de.mxro.server.contexts;
 
+import de.mxro.server.ShutdownCallback;
+
 /**
  * Allows access to two kinds of stateful data for a server: logs and simple
  * key/value properties.
@@ -27,5 +29,7 @@ public interface StatefulContext {
 	 */
 	public void getProperty(String path, Object defaultValue,
 			GetPropertyCallback callback);
+
+	public void shutdown(ShutdownCallback callback);
 
 }
