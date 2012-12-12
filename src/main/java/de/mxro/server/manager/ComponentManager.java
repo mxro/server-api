@@ -1,4 +1,9 @@
-package de.mxro.server;
+package de.mxro.server.manager;
+
+import de.mxro.server.ComponentConfiguration;
+import de.mxro.server.ServerComponent;
+import de.mxro.server.ShutdownCallback;
+import de.mxro.server.StartCallback;
 
 public interface ComponentManager {
 

@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import de.mxro.server.ComponentConfiguration;
-import de.mxro.server.ComponentFactory;
-import de.mxro.server.ComponentManager;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.ShutdownCallback;
 import de.mxro.server.StartCallback;
+import de.mxro.server.manager.ComponentFactory;
+import de.mxro.server.manager.ComponentManager;
 
 public class DefaultComponentManager implements ComponentManager {
 
