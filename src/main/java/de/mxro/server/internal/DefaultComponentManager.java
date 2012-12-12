@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import de.mxro.server.ComponentConfiguration;
+import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.ShutdownCallback;
 import de.mxro.server.StartCallback;
@@ -15,16 +16,33 @@ public class DefaultComponentManager implements ComponentManager {
 	private final ComponentFactory factory;
 	private final List<ServerComponent> components;
 	private final List<ServerComponent> running;
+	private final ComponentContext context;
+
+	@Override
+	public void addComponent(final int index, final ComponentConfiguration conf) {
+		synchronized (components) {
+			final ServerComponent component = createComponent(conf);
+			components.add(index, component);
+		}
+	}
 
 	@Override
 	public void addComponent(final ComponentConfiguration conf) {
 		synchronized (components) {
-			if (getComponent(conf.getId()) != null) {
-				throw new IllegalStateException("A server with the id ["
-						+ conf.getId() + "] is already defined.");
-			}
-			components.add(factory.createComponent(conf));
+			final ServerComponent component = createComponent(conf);
+			components.add(component);
 		}
+	}
+
+	private ServerComponent createComponent(final ComponentConfiguration conf) {
+		if (getComponent(conf.getId()) != null) {
+			throw new IllegalStateException("A server with the id ["
+					+ conf.getId() + "] is already defined.");
+		}
+		final ServerComponent component = factory.createComponent(conf);
+		component.injectConfiguration(conf);
+		component.injectContext(context);
+		return component;
 	}
 
 	@Override
@@ -106,7 +124,7 @@ public class DefaultComponentManager implements ComponentManager {
 	}
 
 	@Override
-	public void removeComponent(final String componentId) {
+	public int removeComponent(final String componentId) {
 		synchronized (components) {
 			final ServerComponent component = getComponent(componentId);
 			if (component == null) {
@@ -122,7 +140,15 @@ public class DefaultComponentManager implements ComponentManager {
 				}
 			}
 
+			final int idx = components.indexOf(component);
+
+			if (idx < 0) {
+				throw new IllegalStateException(
+						"Cannot remove server that is not defined.");
+			}
+
 			components.remove(component);
+			return idx;
 		}
 	}
 
@@ -138,9 +164,11 @@ public class DefaultComponentManager implements ComponentManager {
 		}
 	}
 
-	public DefaultComponentManager(final ComponentFactory factory) {
+	public DefaultComponentManager(final ComponentContext context,
+			final ComponentFactory factory) {
 		super();
 		this.factory = factory;
+		this.context = context;
 		this.components = new LinkedList<ServerComponent>();
 		this.running = new LinkedList<ServerComponent>();
 	}
