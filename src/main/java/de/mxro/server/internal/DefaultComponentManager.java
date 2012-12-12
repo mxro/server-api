@@ -41,13 +41,18 @@ public class DefaultComponentManager implements ComponentManager {
 
 	private ServerComponent createComponent(final ComponentContext context,
 			final ComponentConfiguration conf) {
+		assert context != null;
+		assert conf != null;
+
 		if (getComponent(conf.getId()) != null) {
 			throw new IllegalStateException("A server with the id ["
 					+ conf.getId() + "] is already defined.");
 		}
 		final ServerComponent component = factory.createComponent(conf);
-		component.injectConfiguration(conf);
+
 		component.injectContext(context);
+		component.injectConfiguration(conf);
+
 		return component;
 	}
 

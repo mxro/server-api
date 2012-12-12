@@ -24,6 +24,7 @@ import de.mxro.server.configuration.CrashingComponentConfiguration;
 public class CrashingComponent implements ServerComponent {
 
 	CrashingComponentConfiguration conf;
+	ComponentContext ctx;
 	ServerComponent decorated;
 
 	private volatile boolean running = false;
@@ -104,7 +105,7 @@ public class CrashingComponent implements ServerComponent {
 
 	@Override
 	public void injectContext(final ComponentContext context) {
-		// not required
+		this.ctx = context;
 	}
 
 	@Override
