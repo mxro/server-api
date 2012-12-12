@@ -2,7 +2,7 @@ package de.mxro.server;
 
 public interface ComponentManager {
 
-	public void addComponent(ComponentConfiguration comp);
+	public void addComponent(ComponentConfiguration conf);
 
 	public void startComponent(String componentId, StartCallback callback);
 
@@ -11,9 +11,5 @@ public interface ComponentManager {
 	public void removeComponent(String componentId);
 
 	public ServerComponent getComponent(String componentId);
-	
-	public 
-
-	
 
 }
