@@ -6,9 +6,8 @@ import de.mxro.server.manager.ComponentManager;
 
 public class ServerApi {
 
-	public static ComponentManager createManager(
-			final ComponentContext context, final ComponentFactory factory) {
-		return new DefaultComponentManager(context, factory);
+	public static ComponentManager createManager(final ComponentFactory factory) {
+		return new DefaultComponentManager(factory);
 
 	}
 

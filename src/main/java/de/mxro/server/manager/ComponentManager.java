@@ -1,13 +1,15 @@
 package de.mxro.server.manager;
 
 import de.mxro.server.ComponentConfiguration;
+import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.ShutdownCallback;
 import de.mxro.server.StartCallback;
 
 public interface ComponentManager {
 
-	public void addComponent(ComponentConfiguration conf);
+	public ServerComponent addComponent(ComponentContext context,
+			ComponentConfiguration conf);
 
 	/**
 	 * Adding a component at a specific index.
@@ -15,7 +17,8 @@ public interface ComponentManager {
 	 * @param index
 	 * @param conf
 	 */
-	public void addComponent(int index, ComponentConfiguration conf);
+	public ServerComponent addComponent(int index, ComponentContext context,
+			ComponentConfiguration conf);
 
 	public void startComponent(String componentId, StartCallback callback);
 

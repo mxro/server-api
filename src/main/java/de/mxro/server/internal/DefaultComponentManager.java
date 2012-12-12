@@ -16,25 +16,31 @@ public class DefaultComponentManager implements ComponentManager {
 	private final ComponentFactory factory;
 	private final List<ServerComponent> components;
 	private final List<ServerComponent> running;
-	private final ComponentContext context;
 
 	@Override
-	public void addComponent(final int index, final ComponentConfiguration conf) {
+	public ServerComponent addComponent(final int index,
+			final ComponentContext context, final ComponentConfiguration conf) {
+		final ServerComponent component;
 		synchronized (components) {
-			final ServerComponent component = createComponent(conf);
+			component = createComponent(context, conf);
 			components.add(index, component);
 		}
+		return component;
 	}
 
 	@Override
-	public void addComponent(final ComponentConfiguration conf) {
+	public ServerComponent addComponent(final ComponentContext context,
+			final ComponentConfiguration conf) {
+		final ServerComponent component;
 		synchronized (components) {
-			final ServerComponent component = createComponent(conf);
+			component = createComponent(context, conf);
 			components.add(component);
 		}
+		return component;
 	}
 
-	private ServerComponent createComponent(final ComponentConfiguration conf) {
+	private ServerComponent createComponent(final ComponentContext context,
+			final ComponentConfiguration conf) {
 		if (getComponent(conf.getId()) != null) {
 			throw new IllegalStateException("A server with the id ["
 					+ conf.getId() + "] is already defined.");
@@ -164,11 +170,10 @@ public class DefaultComponentManager implements ComponentManager {
 		}
 	}
 
-	public DefaultComponentManager(final ComponentContext context,
-			final ComponentFactory factory) {
+	public DefaultComponentManager(final ComponentFactory factory) {
 		super();
 		this.factory = factory;
-		this.context = context;
+
 		this.components = new LinkedList<ServerComponent>();
 		this.running = new LinkedList<ServerComponent>();
 	}
