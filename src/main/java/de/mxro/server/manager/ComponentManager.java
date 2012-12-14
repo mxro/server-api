@@ -1,5 +1,7 @@
 package de.mxro.server.manager;
 
+import java.util.List;
+
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
@@ -10,6 +12,9 @@ public interface ComponentManager {
 
 	public ServerComponent addComponent(ComponentContext context,
 			ComponentConfiguration conf);
+
+	public ServerComponent addComponent(ComponentContext context,
+			ServerComponent component);
 
 	/**
 	 * Adding a component at a specific index.
@@ -32,5 +37,7 @@ public interface ComponentManager {
 	public int removeComponent(String componentId);
 
 	public ServerComponent getComponent(String componentId);
+
+	public List<ServerComponent> getComponents();
 
 }

@@ -1,5 +1,7 @@
 package de.mxro.server.internal;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,6 +39,24 @@ public class DefaultComponentManager implements ComponentManager {
 			components.add(component);
 		}
 		return component;
+	}
+
+	@Override
+	public ServerComponent addComponent(final ComponentContext context,
+			final ServerComponent component) {
+
+		synchronized (components) {
+
+			components.add(component);
+		}
+		return component;
+	}
+
+	@Override
+	public List<ServerComponent> getComponents() {
+
+		return Collections.unmodifiableList(new ArrayList<ServerComponent>(
+				this.components));
 	}
 
 	private ServerComponent createComponent(final ComponentContext context,
