@@ -13,7 +13,7 @@ public interface ComponentManager {
 	public ServerComponent addComponent(ComponentContext context,
 			ComponentConfiguration conf);
 
-	public ServerComponent addComponent(ComponentContext context,
+	public ServerComponent addRunningComponent(ComponentContext context,
 			ServerComponent component);
 
 	/**

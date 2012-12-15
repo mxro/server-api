@@ -42,7 +42,7 @@ public class DefaultComponentManager implements ComponentManager {
 	}
 
 	@Override
-	public ServerComponent addComponent(final ComponentContext context,
+	public ServerComponent addRunningComponent(final ComponentContext context,
 			final ServerComponent component) {
 
 		synchronized (components) {
