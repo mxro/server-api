@@ -116,6 +116,15 @@ public class DefaultComponentManager implements ComponentManager {
 		}
 	}
 
+	private List<String> getComponentIds() {
+		final ArrayList<String> ids = new ArrayList<String>(this
+				.getComponents().size());
+		for (final ServerComponent comp : this.getComponents()) {
+			ids.add(comp.getConfiguration().getId());
+		}
+		return ids;
+	}
+
 	@Override
 	public void stopComponent(final String componentId,
 			final ShutdownCallback callback) {
@@ -124,8 +133,10 @@ public class DefaultComponentManager implements ComponentManager {
 			final ServerComponent component = getComponent(componentId);
 
 			if (component == null) {
-				throw new IllegalStateException("No server with id ["
-						+ componentId + "] is defined.");
+				throw new IllegalStateException("No server component with id ["
+						+ componentId
+						+ "] is defined. Defined components are: "
+						+ getComponentIds());
 			}
 
 			synchronized (running) {
