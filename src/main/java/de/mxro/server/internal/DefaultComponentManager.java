@@ -48,6 +48,7 @@ public class DefaultComponentManager implements ComponentManager {
 		synchronized (components) {
 
 			components.add(component);
+			this.running.add(component);
 		}
 		return component;
 	}
