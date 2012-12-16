@@ -215,4 +215,10 @@ public class DefaultComponentManager implements ComponentManager {
 		this.running = new LinkedList<ServerComponent>();
 	}
 
+	@Override
+	public boolean isRunning(final ServerComponent component) {
+
+		return this.running.contains(component);
+	}
+
 }

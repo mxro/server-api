@@ -29,6 +29,8 @@ public interface ComponentManager {
 
 	public void stopComponent(String componentId, ShutdownCallback callback);
 
+	public boolean isRunning(ServerComponent component);
+
 	/**
 	 * 
 	 * @param componentId
