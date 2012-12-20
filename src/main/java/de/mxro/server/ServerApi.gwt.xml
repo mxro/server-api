@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Copyright 2012 Max Erik Rohde http://www.mxro.de
-  
-
 -->
-<module rename-to='server-api'>
+<module rename-to='serverapi'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
-  <inherits name='com.google.gwt.user.User'/>
+   <inherits name='com.google.gwt.user.User'/> 
 	
   <!-- Other module inherits                                      -->
 <!-- <inherits name='com.google.common.Guava'></inherits>-->
