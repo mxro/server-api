@@ -86,15 +86,17 @@ public class DefaultComponentManager implements ComponentManager {
 			final ServerComponent component = getComponent(componentId);
 
 			if (component == null) {
-				throw new IllegalStateException("No server with id ["
-						+ componentId + "] is defined.");
+				callback.onFailure(new IllegalStateException(
+						"No server with id [" + componentId + "] is defined."));
+				return;
 			}
 
 			synchronized (running) {
 				if (running.contains(component)) {
-					throw new IllegalStateException(
+					callback.onFailure(new IllegalStateException(
 							"Cannot start an already running server ["
-									+ componentId + "]");
+									+ componentId + "]"));
+					return;
 				}
 
 			}
@@ -135,17 +137,19 @@ public class DefaultComponentManager implements ComponentManager {
 			final ServerComponent component = getComponent(componentId);
 
 			if (component == null) {
-				throw new IllegalStateException("No server component with id ["
-						+ componentId
-						+ "] is defined. Defined components are: "
-						+ getComponentIds());
+				callback.onFailure(new IllegalStateException(
+						"No server component with id [" + componentId
+								+ "] is defined. Defined components are: "
+								+ getComponentIds()));
+				return;
 			}
 
 			synchronized (running) {
 				if (!running.contains(component)) {
-					throw new IllegalStateException(
+					callback.onFailure(new IllegalStateException(
 							"Cannot stop an not running server [" + componentId
-									+ "]");
+									+ "]"));
+					return;
 				}
 			}
 
