@@ -9,6 +9,17 @@ import de.mxro.server.manager.ComponentManager;
 
 public class ServerApi {
 
+	/**
+	 * <p>
+	 * A default manager for components.
+	 * </p>
+	 * <p>
+	 * Beware this manager is not thread safe.
+	 * </p>
+	 * 
+	 * @param factory
+	 * @return
+	 */
 	public static ComponentManager createManager(final ComponentFactory factory) {
 		return new DefaultComponentManager(factory);
 
