@@ -8,7 +8,8 @@ import de.mxro.factories.Factory;
  * @author Max
  * 
  */
-public interface ComponentFactory extends Factory<ServerComponent, ComponentConfiguration, ComponentDependencies> {
+public interface ComponentFactory<ServerComponentType extends ServerComponent, ComponentConfigurationType extends ComponentConfiguration, ComponentDependenciesType extends ComponentDependencies> 
+extends Factory<ServerComponentType, ComponentConfigurationType, ComponentDependenciesType> {
 
 
 
