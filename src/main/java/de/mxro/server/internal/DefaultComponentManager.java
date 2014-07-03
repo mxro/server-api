@@ -7,10 +7,10 @@ import java.util.List;
 
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
+import de.mxro.server.ComponentFactory;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.ShutdownCallback;
 import de.mxro.server.StartCallback;
-import de.mxro.server.manager.ComponentFactory;
 import de.mxro.server.manager.ComponentManager;
 
 public class DefaultComponentManager implements ComponentManager {
