@@ -1,7 +1,9 @@
 package de.mxro.server;
 
-public interface ComponentFactory {
+import de.mxro.factories.Factory;
 
-	public ServerComponent create();
+public interface ComponentFactory extends Factory<ServerComponent, ComponentConfiguration, ComponentDependencies> {
+
+
 	
 }
