@@ -7,6 +7,7 @@ import java.util.List;
 
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
+import de.mxro.server.ComponentDependencies;
 import de.mxro.server.ComponentFactory;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.ShutdownCallback;
@@ -68,7 +69,9 @@ public class DefaultComponentManager implements ComponentManager {
 			throw new IllegalStateException("A server with the id ["
 					+ conf.getId() + "] is already defined.");
 		}
-		final ServerComponent component = factory.createComponent(conf);
+		ComponentDependencies dependencies = new ComponentDependencies() {
+		};
+		final ServerComponent component = factory.create(conf, dependencies);
 
 		component.injectContext(context);
 		component.injectConfiguration(conf);
