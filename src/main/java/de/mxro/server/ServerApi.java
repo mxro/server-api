@@ -1,5 +1,6 @@
 package de.mxro.server;
 
+import de.mxro.factories.FactoryCollection;
 import de.mxro.server.contexts.LocalStatefulContext;
 import de.mxro.server.contexts.LogCallback;
 import de.mxro.server.contexts.StatefulContext;
@@ -19,8 +20,8 @@ public class ServerApi {
 	 * @param factory
 	 * @return
 	 */
-	public static ComponentManager createManager(final ComponentFactory factory) {
-		return new DefaultComponentManager(factory);
+	public static ComponentManager createManager(final FactoryCollection factories) {
+		return new DefaultComponentManager(factories);
 
 	}
 

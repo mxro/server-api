@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import de.mxro.factories.FactoryCollection;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ComponentDependencies;
@@ -16,7 +17,7 @@ import de.mxro.server.manager.ComponentManager;
 
 public class DefaultComponentManager implements ComponentManager {
 
-	private final ComponentFactory factory;
+	private final FactoryCollection factories;
 	private final List<ServerComponent> components;
 	private final List<ServerComponent> running;
 
@@ -71,7 +72,7 @@ public class DefaultComponentManager implements ComponentManager {
 		}
 		ComponentDependencies dependencies = new ComponentDependencies() {
 		};
-		final ServerComponent component = factory.create(conf, dependencies);
+		final ServerComponent component = (ServerComponent) factories.create(conf, dependencies);
 
 		component.injectContext(context);
 		component.injectConfiguration(conf);
@@ -202,9 +203,9 @@ public class DefaultComponentManager implements ComponentManager {
 
 	}
 
-	public DefaultComponentManager(final ComponentFactory factory) {
+	public DefaultComponentManager(final FactoryCollection factories) {
 		super();
-		this.factory = factory;
+		this.factories = factories;
 
 		this.components = new LinkedList<ServerComponent>();
 		this.running = new LinkedList<ServerComponent>();
