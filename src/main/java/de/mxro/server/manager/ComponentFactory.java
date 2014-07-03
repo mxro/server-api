@@ -1,6 +1,8 @@
 package de.mxro.server.manager;
 
+import de.mxro.factories.Factory;
 import de.mxro.server.ComponentConfiguration;
+import de.mxro.server.ComponentDependencies;
 import de.mxro.server.ServerComponent;
 
 /**
@@ -9,8 +11,8 @@ import de.mxro.server.ServerComponent;
  * @author Max
  * 
  */
-public interface ComponentFactory {
+public interface ComponentFactory extends Factory<ServerComponent, ComponentConfiguration, ComponentDependencies> {
 
-	public ServerComponent createComponent(ComponentConfiguration conf);
+
 
 }
