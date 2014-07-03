@@ -1,9 +1,6 @@
-package de.mxro.server.manager;
+package de.mxro.server;
 
 import de.mxro.factories.Factory;
-import de.mxro.server.ComponentConfiguration;
-import de.mxro.server.ComponentDependencies;
-import de.mxro.server.ServerComponent;
 
 /**
  * A factory for a {@link ServerComponent}s.

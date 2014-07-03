@@ -4,7 +4,6 @@ import de.mxro.server.contexts.LocalStatefulContext;
 import de.mxro.server.contexts.LogCallback;
 import de.mxro.server.contexts.StatefulContext;
 import de.mxro.server.internal.DefaultComponentManager;
-import de.mxro.server.manager.ComponentFactory;
 import de.mxro.server.manager.ComponentManager;
 
 public class ServerApi {
