@@ -2,6 +2,8 @@ package de.mxro.server;
 
 import java.io.Serializable;
 
+import de.mxro.factories.Configuration;
+
 /**
  * The configuration for a particular component of a server (for instance RPC
  * server)
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * @author Max
  * 
  */
-public interface ComponentConfiguration extends Serializable {
+public interface ComponentConfiguration extends Serializable, Configuration {
 
 	public boolean isBackgroundService();
 
