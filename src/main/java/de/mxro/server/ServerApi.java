@@ -1,5 +1,8 @@
 package de.mxro.server;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.mxro.factories.FactoryCollection;
 import de.mxro.server.contexts.LocalStatefulContext;
 import de.mxro.server.contexts.LogCallback;
@@ -42,6 +45,38 @@ public class ServerApi {
 
 	public static StatefulContext createLocalStatefulContext() {
 		return new LocalStatefulContext();
+	}
+
+	public static void performShutdown(final List<ServerComponent> toShutdown,
+			final ShutdownCallback callback) {
+	
+		if (toShutdown.size() == 0) {
+			callback.onShutdownComplete();
+			return;
+		}
+	
+		final ServerComponent server = toShutdown.get(0);
+		toShutdown.remove(0);
+	
+		final List<ServerComponent> remainingServers = new ArrayList<ServerComponent>(
+				toShutdown);
+	
+		server.stop(new ShutdownCallback() {
+	
+			@Override
+			public void onShutdownComplete() {
+	
+				performShutdown(remainingServers, callback);
+			}
+	
+			@Override
+			public void onFailure(final Throwable t) {
+				t.printStackTrace();
+				performShutdown(remainingServers, callback);
+				callback.onFailure(t);
+			}
+		});
+	
 	}
 
 }
