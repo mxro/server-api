@@ -1,7 +1,5 @@
 package de.mxro.server;
 
-import java.io.Serializable;
-
 import de.mxro.factories.Configuration;
 
 /**
@@ -11,15 +9,8 @@ import de.mxro.factories.Configuration;
  * @author Max
  * 
  */
-public interface ComponentConfiguration extends Serializable, Configuration {
+public interface ComponentConfiguration extends Configuration {
 
-	public boolean isBackgroundService();
-
-	/**
-	 * A unique ID for this component within the server it is running in.
-	 * 
-	 * @return
-	 */
-	public String getId();
+	
 
 }
