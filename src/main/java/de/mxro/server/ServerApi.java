@@ -9,6 +9,7 @@ import de.mxro.server.contexts.LogCallback;
 import de.mxro.server.contexts.StatefulContext;
 import de.mxro.server.internal.DefaultComponentManager;
 import de.mxro.server.manager.ComponentManager;
+import de.mxro.service.callbacks.ShutdownCallback;
 
 public class ServerApi {
 

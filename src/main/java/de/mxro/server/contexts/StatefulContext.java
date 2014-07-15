@@ -1,6 +1,6 @@
 package de.mxro.server.contexts;
 
-import de.mxro.server.ShutdownCallback;
+import de.mxro.service.callbacks.ShutdownCallback;
 
 /**
  * Allows access to two kinds of stateful data for a server: logs and simple

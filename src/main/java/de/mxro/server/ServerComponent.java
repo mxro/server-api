@@ -5,6 +5,8 @@
  ******************************************************************************/
 package de.mxro.server;
 
+import de.mxro.service.Service;
+
 /**
  * A component of a server process.
  * 
@@ -12,21 +14,7 @@ package de.mxro.server;
  * 
  *         Copyright Max Erik Rohde 2011. All rights reserved.
  */
-public interface ServerComponent {
-
-	/**
-	 * This service can be called to shutdown this components 'gracefully'.
-	 * 
-	 * @param callback
-	 */
-	public void stop(ShutdownCallback callback);
-
-	/**
-	 * Starting up this server component.
-	 * 
-	 * @param callback
-	 */
-	public void start(StartCallback callback);
+public interface ServerComponent extends Service {
 
 	/**
 	 * Set a configuration for this component

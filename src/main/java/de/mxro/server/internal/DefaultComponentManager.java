@@ -10,9 +10,9 @@ import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ComponentDependencies;
 import de.mxro.server.ServerComponent;
-import de.mxro.server.ShutdownCallback;
-import de.mxro.server.StartCallback;
 import de.mxro.server.manager.ComponentManager;
+import de.mxro.service.callbacks.ShutdownCallback;
+import de.mxro.service.callbacks.StartCallback;
 
 public class DefaultComponentManager implements ComponentManager {
 

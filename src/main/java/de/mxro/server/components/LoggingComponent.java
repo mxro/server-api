@@ -3,9 +3,9 @@ package de.mxro.server.components;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
-import de.mxro.server.ShutdownCallback;
-import de.mxro.server.StartCallback;
 import de.mxro.server.configuration.v01.LoggingComponentConfiguration;
+import de.mxro.service.callbacks.ShutdownCallback;
+import de.mxro.service.callbacks.StartCallback;
 
 /**
  * A component useful for test and debugging, which will write all actions

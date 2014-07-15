@@ -3,7 +3,7 @@ package de.mxro.server.components;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
-import de.mxro.server.StartCallback;
+import de.mxro.service.callbacks.StartCallback;
 
 /**
  * A basic component implementing all methods. Any methods which shall be used
@@ -17,7 +17,7 @@ public class BaseServerComponent implements ServerComponent {
 	private static final String METHOD_NOT_SUPPORTED = "Method not supported";
 
 	@Override
-	public void stop(final de.mxro.server.ShutdownCallback callback) {
+	public void stop(final de.mxro.service.callbacks.ShutdownCallback callback) {
 		throw new RuntimeException(METHOD_NOT_SUPPORTED);
 	}
 

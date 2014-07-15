@@ -3,7 +3,7 @@ package de.mxro.server.contexts;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.mxro.server.ShutdownCallback;
+import de.mxro.service.callbacks.ShutdownCallback;
 
 public class LocalStatefulContext implements StatefulContext {
 

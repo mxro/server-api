@@ -5,8 +5,8 @@ import java.util.List;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
-import de.mxro.server.ShutdownCallback;
-import de.mxro.server.StartCallback;
+import de.mxro.service.callbacks.ShutdownCallback;
+import de.mxro.service.callbacks.StartCallback;
 
 public interface ComponentManager {
 
