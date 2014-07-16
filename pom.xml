@@ -25,11 +25,11 @@
 	<!-- Dependent Modules -->
 	<dependencies>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>de.mxro.factories</groupId>
 			<artifactId>factories</artifactId>
 			<version>[0.0.1,)</version>
-		</dependency>-->
+		</dependency>
 				
 		<dependency>
 		<groupId>de.mxro.service</groupId>

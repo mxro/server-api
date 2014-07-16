@@ -9,6 +9,8 @@
   <!-- Other module inherits                                      -->
   <inherits name='de.mxro.service.Service'></inherits>
 
+	<inherits name='de.mxro.factories.Factory'></inherits>
+
   <!-- Specify the app entry point class.    -->                    
   <entry-point class='de.mxro.server.internal.DummyEntryPoint'/> 
 
