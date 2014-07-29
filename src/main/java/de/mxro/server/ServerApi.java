@@ -28,7 +28,8 @@ public class ServerApi {
 	 * @param factory
 	 * @return
 	 */
-	public static ComponentManager createManager(final FactoryCollection factories) {
+	public static ComponentManager createManager(
+			final FactoryCollection factories) {
 		return new DefaultComponentManager(factories);
 
 	}
@@ -51,33 +52,33 @@ public class ServerApi {
 	public static StatefulContext createLocalStatefulContext() {
 		return new LocalStatefulContext();
 	}
-	
-	public static Factory<StatefulContext, StatefulContextConfiguration, Dependencies> createLocalStatefulContextFactory() {
+
+	public static Factory<? extends StatefulContext, ? extends StatefulContextConfiguration, Dependencies> createLocalStatefulContextFactory() {
 		return new LocalStatefulContextFactory();
 	}
 
 	public static void performShutdown(final List<ServerComponent> toShutdown,
 			final ShutdownCallback callback) {
-	
+
 		if (toShutdown.size() == 0) {
 			callback.onShutdownComplete();
 			return;
 		}
-	
+
 		final ServerComponent server = toShutdown.get(0);
 		toShutdown.remove(0);
-	
+
 		final List<ServerComponent> remainingServers = new ArrayList<ServerComponent>(
 				toShutdown);
-	
+
 		server.stop(new ShutdownCallback() {
-	
+
 			@Override
 			public void onShutdownComplete() {
-	
+
 				performShutdown(remainingServers, callback);
 			}
-	
+
 			@Override
 			public void onFailure(final Throwable t) {
 				t.printStackTrace();
@@ -85,7 +86,7 @@ public class ServerApi {
 				callback.onFailure(t);
 			}
 		});
-	
+
 	}
 
 }
