@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.mxro.factories.FactoryCollection;
-import de.mxro.server.contexts.LocalStatefulContext;
 import de.mxro.server.contexts.LogCallback;
 import de.mxro.server.contexts.StatefulContext;
 import de.mxro.server.internal.DefaultComponentManager;
+import de.mxro.server.internal.LocalStatefulContext;
 import de.mxro.server.manager.ComponentManager;
 import de.mxro.service.callbacks.ShutdownCallback;
 

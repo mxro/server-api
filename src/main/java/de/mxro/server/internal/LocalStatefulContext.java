@@ -1,8 +1,12 @@
-package de.mxro.server.contexts;
+package de.mxro.server.internal;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import de.mxro.server.contexts.GetPropertyCallback;
+import de.mxro.server.contexts.LogCallback;
+import de.mxro.server.contexts.SetPropertyCallback;
+import de.mxro.server.contexts.StatefulContext;
 import de.mxro.service.callbacks.ShutdownCallback;
 
 public class LocalStatefulContext implements StatefulContext {
