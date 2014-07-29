@@ -3,11 +3,15 @@ package de.mxro.server;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.mxro.factories.Dependencies;
+import de.mxro.factories.Factory;
 import de.mxro.factories.FactoryCollection;
 import de.mxro.server.contexts.LogCallback;
 import de.mxro.server.contexts.StatefulContext;
+import de.mxro.server.contexts.StatefulContextConfiguration;
 import de.mxro.server.internal.DefaultComponentManager;
 import de.mxro.server.internal.LocalStatefulContext;
+import de.mxro.server.internal.LocalStatefulContextFactory;
 import de.mxro.server.manager.ComponentManager;
 import de.mxro.service.callbacks.ShutdownCallback;
 
@@ -46,6 +50,10 @@ public class ServerApi {
 
 	public static StatefulContext createLocalStatefulContext() {
 		return new LocalStatefulContext();
+	}
+	
+	public static Factory<StatefulContext, StatefulContextConfiguration, Dependencies> createLocalStatefulContextFactory() {
+		return new LocalStatefulContextFactory();
 	}
 
 	public static void performShutdown(final List<ServerComponent> toShutdown,
