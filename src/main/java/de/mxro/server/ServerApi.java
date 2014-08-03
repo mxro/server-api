@@ -70,12 +70,12 @@ public class ServerApi {
 
 		final List<ServerComponent> remainingServers = new ArrayList<ServerComponent>(
 				toShutdown);
-
+		System.out.println("trying "+server);
 		server.stop(new ShutdownCallback() {
 
 			@Override
 			public void onShutdownComplete() {
-
+				System.out.println("shut down "+server);
 				performShutdown(remainingServers, callback);
 			}
 
