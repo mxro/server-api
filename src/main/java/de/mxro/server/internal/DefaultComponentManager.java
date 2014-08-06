@@ -194,7 +194,7 @@ public class DefaultComponentManager implements ComponentManager {
 	public ServerComponent getComponent(final String componentId) {
 
 		for (final ServerComponent comp : components) {
-			if (comp.getConfiguration().getId().equals(componentId)) {
+			if (componentId.equals(comp.getConfiguration().getId())) {
 				return comp;
 			}
 		}
