@@ -61,7 +61,7 @@ public class ServerApi {
 			final ShutdownCallback callback) {
 
 		if (toShutdown.size() == 0) {
-			callback.onShutdownComplete();
+			callback.onSuccess();
 			return;
 		}
 
@@ -73,7 +73,7 @@ public class ServerApi {
 		server.stop(new ShutdownCallback() {
 
 			@Override
-			public void onShutdownComplete() {
+			public void onSuccess() {
 				performShutdown(remainingServers, callback);
 			}
 

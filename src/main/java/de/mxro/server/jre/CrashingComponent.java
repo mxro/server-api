@@ -44,10 +44,10 @@ public class CrashingComponent implements ServerComponent {
 			decorated.stop(new ShutdownCallback() {
 
 				@Override
-				public void onShutdownComplete() {
+				public void onSuccess() {
 					running = false;
 					stopping = false;
-					callback.onShutdownComplete();
+					callback.onSuccess();
 				}
 
 				@Override
@@ -57,7 +57,7 @@ public class CrashingComponent implements ServerComponent {
 			});
 		} else {
 			running = false;
-			callback.onShutdownComplete();
+			callback.onSuccess();
 		}
 
 	}
@@ -83,7 +83,7 @@ public class CrashingComponent implements ServerComponent {
 				decorated.stop(new ShutdownCallback() {
 
 					@Override
-					public void onShutdownComplete() {
+					public void onSuccess() {
 						stopping = false;
 						stopped = true;
 					}

@@ -64,7 +64,7 @@ public class LocalStatefulContext implements StatefulContext {
 
 	@Override
 	public void shutdown(final ShutdownCallback callback) {
-		callback.onShutdownComplete();
+		callback.onSuccess();
 	}
 
 }

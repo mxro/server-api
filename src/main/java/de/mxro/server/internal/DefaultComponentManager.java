@@ -148,11 +148,11 @@ public class DefaultComponentManager implements ComponentManager {
 		component.stop(new ShutdownCallback() {
 
 			@Override
-			public void onShutdownComplete() {
+			public void onSuccess() {
 
 				running.remove(component);
 
-				callback.onShutdownComplete();
+				callback.onSuccess();
 			}
 
 			@Override

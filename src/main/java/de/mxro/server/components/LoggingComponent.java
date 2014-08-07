@@ -22,7 +22,7 @@ public class LoggingComponent implements ServerComponent {
 	public void stop(final ShutdownCallback callback) {
 		conf.getListener().log(
 				"Stopping component: " + conf.getId() + " " + this);
-		callback.onShutdownComplete();
+		callback.onSuccess();
 	}
 
 	@Override
