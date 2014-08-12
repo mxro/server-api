@@ -2,11 +2,11 @@ package de.mxro.server.manager;
 
 import java.util.List;
 
+import de.mxro.async.callbacks.SimpleCallback;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.service.callbacks.ShutdownCallback;
-import de.mxro.service.callbacks.StartCallback;
 
 public interface ComponentManager {
 
@@ -25,7 +25,7 @@ public interface ComponentManager {
 	public ServerComponent addComponent(int index, ComponentContext context,
 			ComponentConfiguration conf);
 
-	public void startComponent(String componentId, StartCallback callback);
+	public void startComponent(String componentId, SimpleCallback callback);
 
 	public void stopComponent(String componentId, ShutdownCallback callback);
 
