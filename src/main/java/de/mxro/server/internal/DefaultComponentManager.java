@@ -101,11 +101,11 @@ public class DefaultComponentManager implements ComponentManager {
 		component.start(new StartCallback() {
 
 			@Override
-			public void onStarted() {
+			public void onSuccess() {
 
 				running.add(component);
 
-				callback.onStarted();
+				callback.onSuccess();
 			}
 
 			@Override

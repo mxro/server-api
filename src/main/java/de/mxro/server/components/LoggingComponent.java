@@ -1,11 +1,11 @@
 package de.mxro.server.components;
 
+import de.mxro.async.callbacks.SimpleCallback;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.configuration.v01.LoggingComponentConfiguration;
 import de.mxro.service.callbacks.ShutdownCallback;
-import de.mxro.service.callbacks.StartCallback;
 
 /**
  * A component useful for test and debugging, which will write all actions
@@ -26,10 +26,10 @@ public class LoggingComponent implements ServerComponent {
 	}
 
 	@Override
-	public void start(final StartCallback callback) {
+	public void start(final SimpleCallback callback) {
 		conf.getListener().log(
 				"Starting component: " + conf.getId() + " (" + this + ")");
-		callback.onStarted();
+		callback.onSuccess();
 	}
 
 	@Override

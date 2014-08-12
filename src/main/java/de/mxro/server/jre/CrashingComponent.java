@@ -3,12 +3,12 @@ package de.mxro.server.jre;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import de.mxro.async.callbacks.SimpleCallback;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.configuration.CrashingComponentConfiguration;
 import de.mxro.service.callbacks.ShutdownCallback;
-import de.mxro.service.callbacks.StartCallback;
 
 /**
  * <p>
@@ -63,7 +63,7 @@ public class CrashingComponent implements ServerComponent {
 	}
 
 	@Override
-	public synchronized void start(final StartCallback callback) {
+	public synchronized void start(final SimpleCallback callback) {
 
 		assert running == false;
 
