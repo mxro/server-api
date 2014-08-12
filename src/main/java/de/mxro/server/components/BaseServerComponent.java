@@ -17,7 +17,7 @@ public class BaseServerComponent implements ServerComponent {
 	private static final String METHOD_NOT_SUPPORTED = "Method not supported";
 
 	@Override
-	public void stop(final de.mxro.service.callbacks.ShutdownCallback callback) {
+	public void stop(final SimpleCallback callback) {
 		throw new RuntimeException(METHOD_NOT_SUPPORTED);
 	}
 

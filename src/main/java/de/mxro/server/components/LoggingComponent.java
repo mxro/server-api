@@ -5,7 +5,6 @@ import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.configuration.v01.LoggingComponentConfiguration;
-import de.mxro.service.callbacks.ShutdownCallback;
 
 /**
  * A component useful for test and debugging, which will write all actions
@@ -19,7 +18,7 @@ public class LoggingComponent implements ServerComponent {
 	LoggingComponentConfiguration conf;
 
 	@Override
-	public void stop(final ShutdownCallback callback) {
+	public void stop(final SimpleCallback callback) {
 		conf.getListener().log(
 				"Stopping component: " + conf.getId() + " " + this);
 		callback.onSuccess();

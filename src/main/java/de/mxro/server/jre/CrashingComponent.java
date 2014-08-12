@@ -32,7 +32,7 @@ public class CrashingComponent implements ServerComponent {
 	private volatile boolean stopping = false;
 
 	@Override
-	public synchronized void stop(final ShutdownCallback callback) {
+	public synchronized void stop(final SimpleCallback callback) {
 		assert running;
 
 		while (stopping) {
