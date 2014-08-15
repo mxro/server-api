@@ -7,6 +7,11 @@ An abstract API for the management of servers.
 
 For news and infos check [maxrohde.com](http://maxrohde.com).
 
+## Maven Reports
+
+- [All Reports](http://modules.appjangle.com/server-api/latest/project-reports.html)
+
+
 ## Used by
 
 - [Nextweb.io](http://nextweb.io)
