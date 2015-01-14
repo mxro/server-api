@@ -1,5 +1,7 @@
 package de.mxro.server;
 
+import de.mxro.async.properties.PropertyNode;
+
 /**
  * Contextual variables for a Server Component.
  * 
@@ -7,5 +9,7 @@ package de.mxro.server;
  * 
  */
 public interface ComponentContext {
+
+    public PropertyNode metrics();
 
 }
