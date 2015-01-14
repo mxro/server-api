@@ -3,14 +3,9 @@ package de.mxro.server;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.mxro.factories.Dependencies;
-import de.mxro.factories.Factory;
 import de.mxro.factories.FactoryCollection;
 import de.mxro.server.contexts.LogCallback;
-import de.mxro.server.contexts.StatefulContext;
-import de.mxro.server.contexts.StatefulContextConfiguration;
 import de.mxro.server.internal.DefaultComponentManager;
-import de.mxro.server.internal.LocalStatefulContextFactory;
 import de.mxro.server.manager.ComponentManager;
 import de.mxro.service.callbacks.ShutdownCallback;
 
@@ -45,10 +40,6 @@ public class ServerApi {
                 throw new RuntimeException("Log call failed from: " + source, t);
             }
         };
-    }
-
-    public static Factory<? extends StatefulContext, ? extends StatefulContextConfiguration, Dependencies> createLocalStatefulContextFactory() {
-        return new LocalStatefulContextFactory();
     }
 
     public static void performShutdown(final List<ServerComponent> toShutdown, final ShutdownCallback callback) {
