@@ -12,10 +12,12 @@ import de.mxro.service.ServiceRegistry;
  */
 public interface ComponentContext {
 
-    public PropertyNode metrics();
-
     public FactoryCollection factories();
 
     public ServiceRegistry services();
+
+    public PropertyNode metrics();
+
+    public PropertyNode state();
 
 }
