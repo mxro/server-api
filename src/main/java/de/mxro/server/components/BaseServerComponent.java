@@ -1,9 +1,9 @@
 package de.mxro.server.components;
 
-import de.mxro.async.callbacks.SimpleCallback;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
+import delight.async.callbacks.SimpleCallback;
 
 /**
  * A basic component implementing all methods. Any methods which shall be used
