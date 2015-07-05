@@ -1,10 +1,11 @@
 package de.mxro.server.components;
 
+import delight.async.callbacks.SimpleCallback;
+
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.configuration.v01.LoggingComponentConfiguration;
-import delight.async.callbacks.SimpleCallback;
 
 /**
  * A component useful for test and debugging, which will write all actions

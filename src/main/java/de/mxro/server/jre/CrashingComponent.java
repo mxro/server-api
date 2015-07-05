@@ -1,5 +1,7 @@
 package de.mxro.server.jre;
 
+import delight.async.callbacks.SimpleCallback;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -8,7 +10,6 @@ import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.configuration.CrashingComponentConfiguration;
 import de.mxro.service.callbacks.ShutdownCallback;
-import delight.async.callbacks.SimpleCallback;
 
 /**
  * <p>

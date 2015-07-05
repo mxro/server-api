@@ -1,12 +1,13 @@
 package de.mxro.server.manager;
 
+import delight.async.callbacks.SimpleCallback;
+
 import java.util.List;
 
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ServerComponent;
 import de.mxro.service.callbacks.ShutdownCallback;
-import delight.async.callbacks.SimpleCallback;
 
 public interface ComponentManager {
 

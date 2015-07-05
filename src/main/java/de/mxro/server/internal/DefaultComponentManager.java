@@ -1,5 +1,7 @@
 package de.mxro.server.internal;
 
+import delight.async.callbacks.SimpleCallback;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -12,7 +14,6 @@ import de.mxro.server.ComponentDependencies;
 import de.mxro.server.ServerComponent;
 import de.mxro.server.manager.ComponentManager;
 import de.mxro.service.callbacks.ShutdownCallback;
-import delight.async.callbacks.SimpleCallback;
 
 public class DefaultComponentManager implements ComponentManager {
 
