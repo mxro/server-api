@@ -1,7 +1,8 @@
 package de.mxro.server;
 
+import delight.factories.FactoryCollection;
+
 import de.mxro.async.properties.PropertyNode;
-import de.mxro.factories.FactoryCollection;
 import de.mxro.service.ServiceRegistry;
 
 /**

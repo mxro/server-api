@@ -1,6 +1,6 @@
 package de.mxro.server;
 
-import de.mxro.factories.Factory;
+import delight.factories.Factory;
 
 /**
  * A factory for a {@link ServerComponent}s.

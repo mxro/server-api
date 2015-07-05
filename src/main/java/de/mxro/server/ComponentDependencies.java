@@ -1,6 +1,6 @@
 package de.mxro.server;
 
-import de.mxro.factories.Dependencies;
+import delight.factories.Dependencies;
 
 public interface ComponentDependencies extends Dependencies {
 

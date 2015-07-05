@@ -1,6 +1,6 @@
 package de.mxro.server.contexts;
 
-import de.mxro.factories.Configuration;
+import delight.factories.Configuration;
 
 public interface StatefulContextConfiguration extends Configuration {
 

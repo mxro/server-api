@@ -1,7 +1,8 @@
 package de.mxro.server.components;
 
-import de.mxro.factories.Configuration;
-import de.mxro.factories.Factory;
+import delight.factories.Configuration;
+import delight.factories.Factory;
+
 import de.mxro.server.ComponentDependencies;
 import de.mxro.server.configuration.v01.LoggingComponentConfiguration;
 

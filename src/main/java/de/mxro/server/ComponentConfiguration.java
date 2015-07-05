@@ -1,6 +1,6 @@
 package de.mxro.server;
 
-import de.mxro.factories.Configuration;
+import delight.factories.Configuration;
 
 /**
  * The configuration for a particular component of a server (for instance RPC

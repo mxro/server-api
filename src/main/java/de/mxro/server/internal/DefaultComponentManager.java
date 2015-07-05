@@ -1,13 +1,13 @@
 package de.mxro.server.internal;
 
 import delight.async.callbacks.SimpleCallback;
+import delight.factories.FactoryCollection;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.mxro.factories.FactoryCollection;
 import de.mxro.server.ComponentConfiguration;
 import de.mxro.server.ComponentContext;
 import de.mxro.server.ComponentDependencies;
