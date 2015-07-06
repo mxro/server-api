@@ -31,8 +31,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>de.mxro.async.log</groupId>
-			<artifactId>async-log</artifactId>
+			<groupId>org.javadelight</groupId>
+			<artifactId>delight-log</artifactId>
 			<version>0.0.2</version>
 		</dependency>
 
