@@ -1,3 +1,7 @@
+# MOVED
+
+This project has permanentely moved to [javadelight/delight-server](https://github.com/javadelight/delight-server).
+
 server-api
 ==========
 
